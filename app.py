@@ -27,22 +27,33 @@ def index():
 def saveImg(): 
     if request.is_json:
         data = request.get_json()
-        return str(data["test_params"])
+        img = str(data["img"])
+        file = str(data["fileName"])
+
+        f = open(f"static/{file}.txt", 'w')
+        f.write(img)
+        f.close()
+
+        return request.url
     else:
-        return jsonify("저장에 실패했습니다.")
+        return "저장에 실패했습니다."
         
 
-@app.route('/method', methods=['GET', 'POST']) 
-def method(): 
+
+@app.route('/logging', methods=['GET', 'POST']) 
+def logging(): 
     if request.is_json:
         data = request.get_json()
-        f = open(f"satic/{file}.txt", 'w')
-        f.write(byte)
-        f.close()
-        return str(data["test_params"])
-    data = 1
-    return jsonify(data)
-    
+        errMsg = str(data["msg"])
+        errStack = str(data["stack"])
+        msg = f'[{errMsg}]\n{errStack}'
+        app.logger.error(msg)
+        
+        return f'[로깅 완료]\n{msg}'
+    else:
+        return '로깅에 실패했습니다.'
+
+
 
 if __name__ == '__main__':
     app.debug = False
