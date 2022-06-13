@@ -1,19 +1,17 @@
-hello
-[{'name': 'abc', 'id': ['efg']}]
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-Hello
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-Hello
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-BikeProdProductServiceInsertProdProductVOproductStringstartCodeStringpathCUsersadminDesktopBikeProdBikeProdServiceProductServicecs57BikeProdpopSaveModelbtnSaveProdClickObjectsenderEventArgseCUsersadminDesktopBikeProdBikeProdpopSaveModelcs84
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-    BikeProdProductServiceInsertProdProductVO product String startCode String path  CUsersadminDesktopBikeProdBikeProdServiceProductServicecs 57    BikeProdpopSaveModelbtnSaveProdClickObject sender EventArgs e  CUsersadminDesktopBikeProdBikeProdpopSaveModelcs 84
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-    BikeProdProductServiceInsertProdProductVO product String startCode String path  CUsersadminDesktopBikeProdBikeProdServiceProductServicecs 57    BikeProdpopSaveModelbtnSaveProdClickObject sender EventArgs e  CUsersadminDesktopBikeProdBikeProdpopSaveModelcs 84
-[원격 서버에서 (404) 찾을 수 없음 오류를 반환했습니다.]
-   위치 BikeProdProductServiceInsertProdProductVO product String startCode String path 파일 CUsersadminDesktopBikeProdBikeProdServiceProductServicecs줄 57   위치 BikeProdpopSaveModelbtnSaveProdClickObject sender EventArgs e 파일 CUsersadminDesktopBikeProdBikeProdpopSaveModelcs줄 85
+Exception on /getImg [POST]
+Traceback (most recent call last):
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\admin\anaconda3\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 49, in getImg
+    f = open(f"static/{file}.txt", 'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'static/pp33.txt'

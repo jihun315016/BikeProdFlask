@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from datetime import datetime
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -39,6 +40,20 @@ def saveImg():
         return "저장에 실패했습니다."
         
 
+@app.route('/getImg', methods=['GET', 'POST']) 
+def getImg(): 
+    if request.is_json:
+        data = request.get_json()
+        file = str(data["fileName"])
+
+        f = open(f"static/{file}.txt", 'r')
+        data = f.read()
+        f.close()
+
+        return data
+    else:
+        return "이미지 조회에 실패했습니다."
+
 
 @app.route('/logging', methods=['GET', 'POST']) 
 def logging(): 
@@ -46,7 +61,7 @@ def logging():
         data = request.get_json()
         errMsg = str(data["msg"])
         errStack = str(data["stack"])
-        msg = f'[{errMsg}]\n{errStack}'
+        msg = f'[{datetime.now()}] [{errMsg}]\n{errStack}\n'
         app.logger.error(msg)
         
         return f'[로깅 완료]\n{msg}'
