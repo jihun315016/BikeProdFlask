@@ -14,7 +14,7 @@ if not app.debug:
     
     # 어느 단계까지 로깅을 할지 선택
     # DEBUG > INFO > WARNING > ERROR > Critical
-    # 아무것도 입력하지 않을 때 기본값이 WARNING
+    # 아무것도 입력하지 않을 때 기본값은 WARNING
     file_handler.setLevel(logging.WARNING)
 
     # app.logger.addHandler()에 로거 등록
@@ -53,21 +53,6 @@ def getImg():
         return data
     else:
         return "이미지 조회에 실패했습니다."
-
-
-@app.route('/logging', methods=['GET', 'POST']) 
-def logging(): 
-    if request.is_json:
-        data = request.get_json()
-        errMsg = str(data["msg"])
-        errStack = str(data["stack"])
-        msg = f'[{datetime.now()}] [{errMsg}]\n{errStack}\n'
-        app.logger.error(msg)
-        
-        return f'[로깅 완료]\n{msg}'
-    else:
-        return '로깅에 실패했습니다.'
-
 
 
 if __name__ == '__main__':
