@@ -1,24 +1,6 @@
-from flask import Flask, request, jsonify
-from datetime import datetime
-
-import logging
-from logging.handlers import RotatingFileHandler
-
+from flask import Flask, request
 
 app = Flask(__name__)
-
-# 예를 들어 존재하지 않는 경로에 접근하면 이슈가 기록되는 것을 확인할 수 있다.
-if not app.debug:
-    # 로깅 파일 설정
-    file_handler = RotatingFileHandler('myFlask.log', maxBytes=2000, backupCount=10)
-    
-    # 어느 단계까지 로깅을 할지 선택
-    # DEBUG > INFO > WARNING > ERROR > Critical
-    # 아무것도 입력하지 않을 때 기본값은 WARNING
-    file_handler.setLevel(logging.WARNING)
-
-    # app.logger.addHandler()에 로거 등록
-    app.logger.addHandler(file_handler)
 
 @app.route('/')
 def index():    
@@ -57,4 +39,4 @@ def getImg():
 
 if __name__ == '__main__':
     app.debug = False
-    app.run(host='0.0.0.0', port=8080)
+    app.run()
