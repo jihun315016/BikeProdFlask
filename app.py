@@ -39,4 +39,4 @@ def getImg():
 
 if __name__ == '__main__':
     app.debug = False
-    app.run()
+    app.run(host='172.31.41.62', port=8080)
